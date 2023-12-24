@@ -3,29 +3,19 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
-#include <iomanip>
+#include <cstdlib>
 
-class Contact
-{
-	public:
-	std::string		name;
-	std::string		last_name;
-	std::string		nickname;
-	std::string		darkest_secret;
-	std::string		phone_number;
-
-	void print_info()
-	{
-		std::cout << "Il numero di " << name << ' ' << last_name << " è " << phone_number << '\n';
-	}
-};
+#include "Contact.hpp"
 
 class PhoneBook
 {
+	private:
+
 	public:
-	Contact contatti[8];
-	int num;
+		Contact contatti[8];
+		int		size;
 };
+
+void check_cin();
 
 #endif

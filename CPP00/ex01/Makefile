@@ -1,19 +1,16 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: shhuang <dsheng1993@gmail.com>             +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/14 19:24:23 by shhuang           #+#    #+#              #
-#    Updated: 2023/08/14 19:24:23 by shhuang          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+CXX = g++ -g
+CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
+TARGET = program
 
-all:
-	@clear
-	c++ file.cpp -std=c++98 -Wall -Wextra -Werror -o phonebook
+all: $(TARGET)
 
-fclean: 
-	@echo "cleaning"
-	rm -f phonebook
+$(TARGET): *.cpp
+	$(CXX) $(CXXFLAGS) -o $(TARGET) *.cpp
+
+clean:
+	rm -f $(TARGET) *.o
+
+fclean: clean
+	rm -f $(TARGET)
+
+re: fclean all

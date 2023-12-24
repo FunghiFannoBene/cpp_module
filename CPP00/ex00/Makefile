@@ -1,19 +1,14 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: shhuang <dsheng1993@gmail.com>             +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/14 19:24:23 by shhuang           #+#    #+#              #
-#    Updated: 2023/08/14 19:24:23 by shhuang          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+PROGRAM = program
+
+STD = -std=c++98
+
+FLAGS = -Wall -Werror -Wextra
 
 all:
-	@clear
-	c++ megaphone.cpp -std=c++98 -Wall -Wextra -Werror -o megaphone
+	g++ $(STD) $(FLAGS) -o $(PROGRAM) *.cpp
 
-fclean: 
-	@echo "cleaning"
-	rm -f megaphone 
+clean: rm -f $(PROGRAM) *.o
+
+fclean: rm -f $(PROGRAM) *.o
+
+re: clean all
