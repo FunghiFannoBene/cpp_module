@@ -27,7 +27,16 @@ int main()
 		std::cout << "SuperRubrica> SELEZIONA: ADD, SEARCH, EXIT\n";
 		command.clear();
 		std::getline(std::cin, command);
-		check_cin();
+		if (std::cin.fail()) 
+		{
+			if (std::cin.eof()) 
+			{
+				std::cout << "Ctrl + D : Exit;" << std::endl;
+				exit(0);
+			}
+			else 
+				std::cin.clear();
+		}
 		if(command == "EXIT")
 			return(1);
 		if(command == "ADD")
@@ -70,7 +79,16 @@ int main()
 					}
 					std::cout << "\n\nSeleziona un ID per stampare o 9 per tornare al main.\n";
 					std::getline(std::cin, ID);
-					check_cin();
+					if (std::cin.fail()) 
+					{
+						if (std::cin.eof()) 
+						{
+							std::cout << "Ctrl + D : Exit;" << std::endl;
+							exit(0);
+						}
+						else 
+							std::cin.clear();
+					}
 					if(atoi(ID.c_str()) == 9)
 					{
 						std::system("clear");

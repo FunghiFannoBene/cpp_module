@@ -45,7 +45,16 @@ void Contact::addName(Contact::Data data) {
         }
 
         std::getline(std::cin, answer);
-		check_cin();
+		if (std::cin.fail()) 
+		{
+			if (std::cin.eof()) 
+			{
+				std::cout << "Ctrl + D : Exit;" << std::endl;
+				exit(0);
+			}
+			else 
+				std::cin.clear();
+		}
         if(answer.empty())
             std::cout << "Il campo non può essere vuoto\n";
         else

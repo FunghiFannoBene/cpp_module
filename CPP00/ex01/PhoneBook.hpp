@@ -16,6 +16,4 @@ class PhoneBook
 		int		size;
 };
 
-void check_cin();
-
 #endif
