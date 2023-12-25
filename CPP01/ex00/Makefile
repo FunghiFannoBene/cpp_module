@@ -1,5 +1,16 @@
-all:
-	clang++ main.cpp Zombie.cpp randomChump.cpp newZombie.cpp -std=c++98 -Wall -Wextra -Werror -o zombie
+CXX = g++
+CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
+TARGET = program
+
+all: $(TARGET)
+
+$(TARGET): *.cpp
+	$(CXX) $(CXXFLAGS) -o $(TARGET) *.cpp
 
 clean:
-	rm -f *.o zombie
+	rm -f $(TARGET) *.o
+
+fclean: clean
+	rm -f $(TARGET)
+
+re: fclean all

@@ -1,17 +1,12 @@
-
 #include "Harl.hpp"
 
-int main( void ) {
-
-    std::string input;
-    Harl        harl;
-
-    while (input.compare("exit"))
-    {
-        std::cout << "Ciao, sono harl inserisci un comando: DEBUG, ERROR, WARNING, INFO, exit.\n";
-        std::cin >> input;
-        harl.complain(input);
-    }
-
+int main()
+{
+	Harl harl;
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("I dont exist");
     return 0;
 }

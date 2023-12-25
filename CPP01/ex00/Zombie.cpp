@@ -1,31 +1,22 @@
 #include "Zombie.hpp"
 
-void Zombie::announce(void)
-{
-    std::cout << this->name << ": BraiiiiiiinnnzzzZ...\n";
-}
-
-void Zombie::assign_name(std::string str)
-{
-	this->name = str;
-}
-
 Zombie::Zombie()
 {
-	this->assign_name("Noname");
-}
-
-Zombie::Zombie(std::string str)
-{
-	this->assign_name(str);
 }
 
 Zombie::~Zombie()
 {
-	std::cout << name << ": Il zombie è stato purificato.\n";
+	std::cout << this->name;
+	std::cout << " non esiste più, per sempre.\n";
 }
 
-std::string Zombie::get_name()
+void Zombie::announce( void )
 {
-	return(this->name);
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ...\n";
 }
+
+void Zombie::assignName(std::string str)
+{
+	this->name = str;
+}
+

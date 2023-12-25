@@ -5,18 +5,17 @@
 
 class Harl
 {
-private:
-	void debug();
-	void info();
-	void warning();
-	void error();
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
 
-public:
-    Harl();
-    ~Harl();
-	void complain(std::string level);
+	public:
+		Harl();
+		~Harl();
+		void complain( std::string level );
+		void (Harl::*pointerFunctionArray[4]) (void);
 };
-
-typedef void (Harl::*puntatore_a_funzioni) ( void );
 
 #endif

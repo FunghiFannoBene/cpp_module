@@ -7,31 +7,37 @@ Harl::Harl()
 Harl::~Harl()
 {
 }
+void Harl::debug(void)
+{
+	std::cout << "Debuggare fa schifo, fallo tu.\n";
+}
+void Harl::info(void)
+{
+	std::cout << "Info?? Cercatele su google!\n";
+}
+void Harl::warning(void)
+{
+	std::cout << "Giusto un pochetto...\n";
+}
+void Harl::error(void)
+{
+	std::cout << "Nessun errore, tu hai errori.\n";
+}
 
-void Harl::debug()
+void Harl::complain( std::string level )
 {
-	std::cout << "Debugging...! shut up!\n";
-}
-void Harl::info()
-{
-	std::cout << "Do you need info? Search it alone.\n";
-}
-void Harl::warning()
-{
-	std::cout << "Hey, don't disturb me!\n";
-}
-void Harl::error()
-{
-	std::cout << "The only error is you.\n";
-}
-
-void Harl::complain(std::string level)
-{
-	puntatore_a_funzioni funzioniDiHarl[] = {&Harl::debug,  &Harl::info, &Harl::warning, &Harl::error};
-	std::string commands[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string cmd[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int i = 0;
-	while(i < 4 && commands[i].compare(level))
+	pointerFunctionArray[0]= &Harl::debug;
+	pointerFunctionArray[1]= &Harl::info;
+	pointerFunctionArray[2]= &Harl::warning;
+	pointerFunctionArray[3]= &Harl::error;
+
+	while(i < 4 && level.compare(cmd[i]))
 		i++;
 	if(i < 4)
-		((*this).*funzioniDiHarl[i])();
+	{
+		Harl harlInstance;
+		(harlInstance.*pointerFunctionArray[i])();
+	}
 }
