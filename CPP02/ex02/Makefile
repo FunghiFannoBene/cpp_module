@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: shhuang <dsheng1993@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/26 19:52:00 by shhuang           #+#    #+#              #
-#    Updated: 2023/12/26 19:52:01 by shhuang          ###   ########.fr        #
+#    Created: 2023/12/26 19:52:13 by shhuang           #+#    #+#              #
+#    Updated: 2023/12/26 19:52:14 by shhuang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = g++
-CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS = -g -std=c++98 -Wall -Werror -Wextra
 TARGET = program
 
 all: $(TARGET)

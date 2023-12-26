@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shhuang <dsheng1993@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/26 19:51:39 by shhuang           #+#    #+#             */
+/*   Updated: 2023/12/26 19:51:40 by shhuang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed():storeFix(0)
 {
 	std::cout << "Default constructor called\n";
-	this->_fixedPointValue = 0;
 }
 
 Fixed::~Fixed()
@@ -11,27 +22,26 @@ Fixed::~Fixed()
 	std::cout << "Destructor called\n";
 }
 
-Fixed::Fixed( const Fixed &r )
+Fixed& Fixed::operator=(const Fixed& assign)
 {
-	std::cout << "Copy constructor called\n";
-	this->setBits(r.getBits());
-}
-
-Fixed& Fixed::operator=( const Fixed &r)
-{
-	std::cout << "Copy assignment called\n";
-	if(this != &r)
-		this->setBits(r.getBits());
+	std::cout << "Copy assignment operator called\n";
+	this->setRawBits(assign.getRawBits());
 	return(*this);
 }
 
-int Fixed::getBits() const
+Fixed::Fixed(const Fixed& copy)
 {
-	std::cout << "getRawBits member function called\n";
-	return(this->_fixedPointValue);
+	std::cout << "Copy constructor called\n";
+	this->setRawBits(copy.getRawBits());
 }
 
-void Fixed::setBits(int const raw)
+int Fixed::getRawBits( void ) const
 {
-	this->_fixedPointValue = raw;
+	std::cout << "getRawBits member function called\n";
+	return(storeFix);
+}
+
+void Fixed::setRawBits( int const raw )
+{
+	storeFix = raw;
 }
